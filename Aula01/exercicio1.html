@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>operação JavaScript</title>
+</head>
+<body>
+    <h1>Operação com JavaScript</h1>
+</body>
+<script>
+
+    let nome = prompt('Digite seu nome');
+
+    alert(`O seu nome é ${nome}`);
+    console.log(`Nome digitado é ${nome}`);
+    
+    let n1 = parseInt(prompt('Digite o primeiro número:'));
+    let n2 = parseInt(prompt('Digite a segundo número:'));
+    
+    let operacao = prompt(`Qual operação foi escolhida? (+,-,/,*)`)
+
+    if(operacao === "+") {
+        console.log(n1 + n2);
+    }else if (operacao === "-") {
+        console.log(n1 - n2);
+    }else if (operacao === "*") {
+        console.log(n1 * n2);
+    }else if (operacao === "/") {
+        console.log(n1 / n2);
+    }else{
+        console.log(`ATENÇÃO! operação inválida.`);
+    }
+
+</script>
+</html>

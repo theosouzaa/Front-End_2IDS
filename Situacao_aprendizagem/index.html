@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário para aplicação de defencivos agírcolas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+        <div class="container">
+            <h2>Controle de aplicação agrícola</h2>
+
+            <form onsubmit="validarFormulario(event)">
+                <label>Nome operador: </label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+                <br><br>
+                
+                <label>Defensivo utilizado: </label>
+                <input type="text" id="produto" name="produto" placeholder="Mancozebe (fungicida), Acefato (inseticida)">
+                <br><br>
+
+                <label>Data aplicação: </label>
+                <input type="date" id="data" name="data">
+                <br><br>
+
+                <label>Talhão aplicado: </label>
+                <input type="text" id="talhao" name="talhao" placeholder="2,44m x 1,10m">
+                <br><br>
+
+                <label>Quantidade aplicada: </label>
+                <input type="text" id="quantidade" name="quantidade" placeholder="80 a 100 litros de calda por hectare">
+                <br><br>
+
+                <button type="submit">Enviar Relatório</button>
+
+            </form>
+
+            <h3>Resultado</h3>
+            <pre id="saida"></pre>
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>

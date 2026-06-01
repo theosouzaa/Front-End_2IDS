@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de avisos</title>
+</head>
+<body>
+    <h1 style="font-family: Arial, Helvetica, sans-serif;">Painel de avisos - Biblioteca escolar</h1>
+
+    <p id="horario">Horario de funcionamento: Segunda a Sexta das 8h às 17h</p>
+
+    <button onclick="mostrarHorario()">Horário de funcionamento</button>
+
+    <button onclick="mudarFonte()">Mudar Fonte</button><br><br>
+
+    <button onclick="aumentarLetra()">Aumentar letra + </button>
+
+    <button onclick="diminuirLetra()">Diminuir letra - </button>
+
+    <button onclick="limpar()" style="background-color: red; border-radius: 5px;">Limpar</button>
+</body>
+<script>
+    function mostrarHorario(){
+        alert(document.getElementById("horario").textContent);
+    }
+
+    function mudarFonte(){
+        let = fonte = prompt("Digite a fonte que deseja para o texto (ex: Arial, Times New Roman, etc): ");
+        document.getElementById("horario").style.fontFamily = fonte;
+    }
+
+    function aumentarLetra(){
+        document.getElementById("horario").style.fontSize = "24px";
+    }
+
+    function diminuirLetra(){
+        document.getElementById("horario").style.fontSize = "12px";
+    }
+
+    function limpar(){
+        document.getElementById("horario").innerHTML = '';
+    }
+
+</script>
+</html>

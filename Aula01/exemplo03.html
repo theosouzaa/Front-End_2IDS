@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <h1>Array com JavaScript</h1>
+</body>
+<script>
+    let array = ['maçã','banana','goiaba','abacaxi'];
+
+    console.log(array);
+    console.log(array.length);
+
+    // Utilizando for para ler o array
+    for (let i=0; i<array.length;i++) {
+        console.log(`FOR -> Array na posição ${i} é a fruta: ${array[i]}`);
+    }
+
+    //utilizando foreach para ler o array
+    array.forEach((value, index) => {
+        console.log(`foreach -> Array na posição ${index} é a fruta: ${value}`);
+    })
+</script>
+</html>

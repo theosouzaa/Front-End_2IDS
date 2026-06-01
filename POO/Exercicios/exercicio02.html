@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO - JavaScript</title>
+</head>
+    <body>
+        <h1>Nivel bateria</h1>
+    </body>
+    <script>
+        class Celular{
+            #marca;
+            #modelo;
+            #nivelBateria;
+
+            constructor(marca, modelo, nivelBateria){
+                this.#marca = marca;
+                this.#modelo = modelo;
+                this.#nivelBateria = nivelBateria;
+            }
+
+            setMarca(marca){
+                this.#marca = marca;
+            }
+            getMarca(){
+                return this.#marca;
+            }
+
+            setModelo(modelo){
+                this.#modelo = modelo;
+            }
+            getModelo(){
+                return this.#modelo;
+            }
+
+            setNivelBateria(nivelBateria){
+                this.#nivelBateria = nivelBateria;
+            }
+            getNivelBateria(){
+                return this.#nivelBateria;
+            }
+
+            carregar(){
+                if(this.#nivelBateria < 100){
+                    this.#nivelBateria += 10;
+                    console.log(`Carregando... Nível de bateria: ${this.#nivelBateria}%`);
+                } else {
+                    console.log(`A bateria já está completamente carregada.`);
+                }
+            }
+        }
+
+        let celular1 = new Celular(`Iphone`, `Iphone 13`, 50);
+        console.log(celular1.getMarca());
+        console.log(celular1.getModelo());
+        console.log(celular1.getNivelBateria());
+        celular1.carregar();
+
+    </script>
+</html>

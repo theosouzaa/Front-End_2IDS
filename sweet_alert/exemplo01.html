@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="mostrarAlerta()">Clique aqui!</button>
+    <br><br>
+
+    <button onclick="alertaErro()">Alerta de erro</button>
+    <br><br>
+
+    <button onclick="alertaComConfirmacao()">Alerta com confirmação</button>
+    <br><br>
+
+    <button onclick="alertaComInformacoes()">Alerta com infirmações</button>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function mostrarAlerta() {
+            // alert('Olá');
+            Swal.fire({
+                title: "Sucesso!",
+                text: "Usuário cadastrado!",
+                icon: "success"
+            });
+        }
+
+        function alertaErro() {
+            Swal.fire({
+                title: "Erro!",
+                text: "Não cadastrado!",
+                icon: "error"
+            });
+        }
+
+        function alertaComConfirmacao() {
+            Swal.fire({
+                title: "Você tem certeza?",
+                text: "O registro será excluido permanentemente!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "SIM, deletar!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Deletado!",
+                        text: "O registro foi deletado com sucesso.",
+                        icon: "success"
+                    });
+                } else {
+                    Swal.fire({
+                        title: "Atenção!",
+                        text: "Nenhum registro foi alterado.",
+                        icon: "info"
+                    });
+                }
+            });
+        }
+
+        function alertaComInformacoes() {
+            Swal.fire({
+                title: "Submit your GitHub username",
+                input: "text",
+                inputAttributes: { autocapitalize: "off" },
+                showCancelButton: true,
+                confirmButtonText: "Enviar",
+                showLoaderOnConfirm: true,
+                preConfirm: async (nome) => {
+                    console.log(nome);
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
+                if (result.isConfirmed) Swal.fire({
+                    title: `O nome foi enviado!`,
+                    imageUrl: result.value.avatar_url
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

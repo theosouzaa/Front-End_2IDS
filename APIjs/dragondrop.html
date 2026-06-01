@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Exemplo</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .container{
+            width: 200px;
+            padding: 10px;
+            border: 2px solid gray;
+            border-radius: 7px;
+        }
+
+        .item{
+            padding: 5px;
+            margin: 5px;
+            background-color: aliceblue;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            cursor: grab;
+        }
+
+        .item.dragging{
+            opacity: 0.5;
+        }
+
+        .container.dropzone{
+            border-color: black;
+        }
+
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="primeiro-container">
+        <div class="item" draggable="true">Primeiro item</div>
+        <div class="item" draggable="true">Segundo item</div>
+        <div class="item" draggable="true">Terceiro item</div>
+    </div>
+
+    <!-- Segunda caixa -->
+    <div class="container" id="segundo-container"></div>
+
+    <script>
+        let itens = document.querySelectorAll('.item');
+        let containers = document.querySelectorAll('.container');
+
+        itens.forEach(item => {
+            item.addEventListener('dragstart', dragStart);
+            item.addEventListener('dragend', dragEnd);
+        });
+
+        containers.forEach(container => {
+            container.addEventListener('dragover', dragOver);
+            container.addEventListener('dragenter', dragEnter);
+            container.addEventListener('dragleave', dragLeave);
+            container.addEventListener('drop', dragDrop);
+        });
+
+        function dragStart(event){
+            event.target.classList.add('dragging');
+            event.dataTransfer.setData('text/plain', event.target.innerText);
+            setTimeout(() => {
+                event.target.classList.add('hidden');
+            }, 0);
+        }
+
+        function dragEnd(event){
+            event.target.classList.remove('dragging', 'hidden');
+        }
+
+        function dragOver(event){
+            event.preventDefault();
+        }
+
+        function dragEnter(event){
+            event.target.classList.add('dropzone');
+        }
+
+        function dragLeave(event){
+            event.target.classList.remove('dropzone');
+        }
+
+        function dragDrop(event){
+            event.preventDefault();
+            event.target.classList.remove('dropzone');
+
+            let textoItem = event.dataTransfer.getData('text/plain');
+
+            let novoItem = document.createElement('div');
+            novoItem.className = 'item';
+            novoItem.draggable = true;
+            novoItem.innerText = textoItem;
+
+            event.target.appendChild(novoItem);
+
+            novoItem.addEventListener('dragstart', dragStart);
+            novoItem.addEventListener('dragend', dragEnd);
+        }
+    </script>
+
+</body>
+</html>

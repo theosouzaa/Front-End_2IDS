@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localização Atual do Mapa</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <style>
+        #mapa{
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="mapa"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        // Função para exibir o mapa com localização atual
+        function exibirMapa(latitude, longitude){
+            // Criar o mapa com localização atual
+            let mapa = L.map('map').setView([latitude, longitude], 13);
+        
+            // Adicionando Title layer ao mapa
+            L.titleLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
+                attribution: 'MAPA do senai'
+            }).addTo(mapa);
+
+            // Colocando marcador no mapa
+            L.marker([latitude, longitude]).addTo(mapa).bindPopup('Você está aqui!').openPopup();
+        }
+
+        function pegaLocalizacao(){
+            // verifica se possui a permissão para a localização
+            if (navigator.geolocation) {
+                // Se possuir, pega a latitude e longitude
+                navigator.geolocation.getCurrentPosition(function(posicao){
+                    // Salva as coordenadas em variavel
+                    let latitude = posicao.coords.latitude;
+                    let longitude = posicao.coords.longitude;
+                    // Chama a função para montar o mapa
+                    exibirMapa(latitude, longitude);
+                }, function(error){
+                    alert(`Erro ao obter sua localização ${error.message}`);
+                });
+            }else{
+                alert(`Esse navegador não suporta a GeoLocalização`)
+            }
+        }
+
+        // Chama a função
+        pegaLocalizacao();
+    </script>
+</body>
+</html>

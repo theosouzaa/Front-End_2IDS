@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Country Roots</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Incluindo NavBar -->
+    <nav class="navbar navbar-expand-lg bg-danger">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">Loja Country Roots</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" aria-current="page" href="#">Botas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">chapéus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">camisas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Informações da página -->
+    <div class="container">
+        <div class="row text-center mt-2">
+            <h1>Loja Country Roots</h1>
+        </div>
+
+        <!-- Segunda linha -->
+        <div class="row">
+            <div class="alert alert-danger" role="alert">
+                Chapéus.
+            </div>
+        </div>
+
+        <!-- terceira linha -->
+        <div class="row">
+            <div class="card" style="width: 18rem;">
+                <img src="https://cdn.iset.io/assets/66687/produtos/17858/07b8498677fc1e23c2dd35e167718d1b68d5730dbb7d6.png"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Chapéu Country Pelo e Lã Bege Cury 33479
+
+                        R$350,00
+                    </p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="https://images.tcdn.com.br/img/img_prod/944840/chapeu_country_eldorado_ec_797_ultimate_20x_shantung_1219_1_548676c3288f85e8071d79514d225611.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Chapéu Country Eldorado EC 797 Ultimate 20x Shantung
+
+                        R$410,00
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <h5>Cadastre-se para comprar</h5>
+            <form>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Nome Completo</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="submit" class="btn btn-danger col-md-12">Comprar</button>
+            </form>
+        </div>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger mt-4 col-md-12" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Saber mais
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">total</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        R$: 500.00
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">terminar compra</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Cadastro Usuários</h2>
+
+    <form onsubmit="validarFormulario(event)">
+        <label>Nome</label>
+        <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+        <br><br>
+
+        <label>CPF</label>
+        <input type="text" name="cpf" id="cpf" maxlength="14" placeholder="000.000.000-00">
+        <br><br>
+
+        <label>Telefone</label>
+        <input type="text" name="telefone" id="telefone" maxlength="15" placeholder="(00) 00000-0000">
+        <br><br>
+
+        <label>Email</label>
+        <input type="email" name="email" id="email" placeholder="seu@emailcorporativo.com">
+        <br><br>
+
+        <label>Data nascimento</label>
+        <input type="date" name="data" id="data" maxlength="8" placeholder="00/00/0000">
+        <br><br>
+
+        <label>Cargo</label>
+        <input type="text" name="cargo" id="cargo" maxlength="" placeholder="ex: auxuliar de produção">
+        <br><br>
+
+        <label for="setor">Setor: </label>
+        <select id="setor" name="setor">
+            <option value="producao">Produção</option>
+            <option value="manuntencao">Manuntenção</option>
+            <option value="logistica">Logística</option>
+            <option value="adiministracao">Adiministração</option>
+        </select>
+        <br><br>
+
+        <label>Matícula do funcionario</label>
+        <input type="text" name="cargo" id="cargo" maxlength="15" placeholder="ex: sla">
+
+        <button type="submit" style="background-color: rgb(11, 165, 11);">Enviar</button>
+    </form>
+</body>
+<!-- CDN JQUERY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- CDN INPUTMASK -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.9/jquery.inputmask.min.js"></script>
+<script>
+    Inputmask({ "mask": "(99) 99999-9999" }).mask(document.getElementById("telefone"));
+    Inputmask({ "mask": "999.999.999-99" }).mask(document.getElementById("cpf"));
+
+    function validarFormulario(event){
+        // Travar envio automatico do HTML
+        event.preventDefault();
+
+        let nome = document.getElementById("nome").value;
+        let email = document.getElementById("email").value
+        let data = document.getElementById("data").value
+        let cpf = document.getElementById("cpf").value;
+        let telefone = document.getElementById("telefone").value;
+        
+        if(!nome || !email || !data || !cpf || !telefone){
+            alert("Todos os campos são obrigatórios!");
+            return false; // Impede o envio do formulário
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1 - Media Queries</title>
+</head>
+<style>
+    .caixa{
+        text-align: center;
+        background-color: rgb(48, 83, 83);
+        color: white;
+        
+    }
+
+    @media (max-width: 576px){
+        .caixa{
+            text-align: right;
+            background-color: red;
+            color: whitesmoke;
+        }
+    }
+
+    @media (min-width: 577px) and (max-width: 1023px){
+        .caixa{
+            text-align: left;
+            background-color: rgb(27, 1, 154);
+            color: whitesmoke;
+        }
+    }
+</style>
+    <body>
+        <div class="caixa">
+            <label for="nome">Nome</label>
+            <br>
+            <input type="text" id="nome" placeholder="Digite seu Nome">
+            <br>
+            <button>Enviar</button>
+        </div>
+    </body>
+</html>

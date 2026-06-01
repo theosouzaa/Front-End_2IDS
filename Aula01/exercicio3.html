@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de jogos</title>
+</head>
+<body>
+    <h1>Lista de jogos com JavaScript</h1>
+</body>
+<script>
+
+// Array vazio para armazenar os jogos do usuario
+    let jogos = [];
+
+// Pede ao usuário 5 jogos 
+    for (let i = 0; i < 5; i++) {
+        let jogo = prompt(`Digite o nome do ${i + 1}º jogo que você mais gosta:`);
+        jogos.push(jogo);
+    }
+
+// Percorre o array usando o forEach
+    jogos.forEach((jogo, indice) => {
+        alert(`Posição: ${indice} | Jogo: ${jogo}`);
+    });
+
+</script>
+</html>

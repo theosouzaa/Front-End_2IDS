@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO - JavaScript</title>
+</head>
+    <body>
+        <h1>Classe aluno</h1>
+    </body>
+    <script>
+        class Aluno{
+            #nome;
+            #idade;
+            #cpf;
+            #telefone;
+            #email;
+            #curso;
+
+            constructor(nome, idade, cpf, telefone, email, curso){
+                this.#nome = nome;
+                this.#idade = idade;
+                this.#cpf = cpf;
+                this.#telefone = telefone;
+                this.#email = email;
+                this.#curso = curso;
+            }
+        
+            getNome(){
+                return this.#nome;
+            }
+            
+            getIdade(){
+                return this.#idade;
+            }
+
+            getCpf(){
+                return this.#cpf;
+            }
+
+            getTelefone(){
+                return this.#telefone;
+            }
+
+            getEmail(){
+                return this.#email;
+            }
+
+            getCurso(){
+                return this.#curso;
+            }
+
+            setNome(nome){
+                this.#nome = nome;
+            }
+            setIdade(idade){
+                this.#idade = idade;
+            }
+            setCpf(cpf){
+                this.#cpf = cpf;
+            }
+            setTelefone(telefone){
+                this.#telefone = telefone;
+            }
+            setEmail(email){
+                this.#email = email;
+            }
+            setCurso(curso){
+                this.#curso = curso;
+            }
+
+        }
+
+        let pessoa = new Aluno();
+        pessoa.setNome(prompt(`Digite o seu nome:`));
+        pessoa.setIdade(prompt(`Digite a sua idade:`));
+        pessoa.setCpf(prompt(`Digite o seu cpf:`));
+        pessoa.setTelefone(prompt(`Digite o seu telefone:`));
+        pessoa.setEmail(prompt(`Digite o seu email:`));
+        pessoa.setCurso(prompt(`Digite o seu curso:`));
+
+        
+        console.log(`O aluno(a) chama ${pessoa.getNome()}`);
+        console.log(`Tem ${pessoa.getIdade()} anos`);
+        console.log(`Seu CPF é: ${pessoa.getCpf()}`);
+        console.log(`Seu telefone para contato é: ${pessoa.getTelefone()}`);
+        console.log(`O aluno(a) está prestando o curso de ${pessoa.getCurso()}`);
+        
+    </script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso a Câmera</title>
+</head>
+    <body>
+        <h1>Streaming da Câmera</h1>
+        <video id="video" autoplay playsinline></video>
+        <button id="capture">Capturar Foto</button>
+        <canvas id="canvas" style="display: none;"></canvas>
+        <img id="foto">
+
+        <script>
+            // capturar tags html
+            let video = document.getElementById('video');
+            let canva = document.getElementById('canvas');
+            let foto = document.getElementById('foto');
+            let botaoCaptura = document.getElementById('capture')
+
+            // acesso a camera
+            navigator.mediaDevices.getUserMedia({video:true})
+                .then(stream => {
+                    // coloca img da webCam na tag video
+                    video.srcObject = stream;
+                }).catch(error => {
+                    // exibimos um erro para o usuario
+                    alert(`Erro ao acessar a câmera: ${error}`)
+                });
+
+            // Capturar a imagem ao clicar no botão
+            botaoCaptura.addEventListener('click', () => {
+                let desenhoIMG = canvas.getContext('2d');
+                canvas.width = video.videowidth;
+                canvas.height = video.height;
+                // Desenhar a imagem
+                desenhoIMG.drawImage(video, 0, 0, canvas.width, canvas.height);
+                fot.src = canvas.toDataURL('image/png');
+            });
+        </script>
+    </body>
+</html>

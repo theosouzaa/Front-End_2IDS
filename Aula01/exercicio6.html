@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frase Usuário JavaScript</title>
+</head>
+<body>
+    <h1>Solicite ao usuário que digite uma frase</h1>
+</body>
+
+<script>
+    // pede uma frase ao usuário
+    let frase = prompt("Digite uma frase:");
+
+    
+    let maiuscula = frase.toUpperCase();
+    let minuscula = frase.toLowerCase();
+    let quantidade = frase.length;
+
+    // mostra resultado
+    alert(
+        `Frase original: ${frase}
+Frase maiúscula: ${maiuscula}
+Frase minúscula: ${minuscula}
+Quantidade de caracteres: ${quantidade}`
+    );
+    console.log(`Frase: ${frase}`);
+    console.log(`Frase maiúcsula: ${maiuscula}`);
+    console.log(`Frase minúscula: ${minuscula}`);
+    console.log(`Quantidade de caracteres: ${quantidade}`);
+</script>
+</html>

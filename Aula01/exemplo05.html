@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página com JavaScript</title>
+</head>
+<body>
+    <h1>Página com JavaScript</h1>
+
+    <button style="background-color: rgb(255, 38, 0); border-radius: 5px;" type="button" onclick="escrevaUmaPalavra()">Botão</button>
+    <br><br>
+
+    <form>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome"><br><br>
+        <input type="number" id="idade" nome="idade" placeholder="Digite sua idade"><br><br>
+        <button  style="background-color: rgb(45, 189, 16); border-radius: 5px;" type="button" onclick="validaFormulario()">Enviar</button>
+    </form>
+</body>
+<script>
+    console.log(`Página com js`);
+
+    //alert(`Página com JS`);
+
+    function escrevaUmaPalavra(){
+        let palavra = prompt(`Digite uma palavra: `);
+        console.log(`O número de caracteres é: ${palavra.length}`);
+        console.log(`Em letra maiuscula: ${palavra.toUpperCase()}`);
+        console.log(`Em letra minusculo: ${palavra.toLowerCase()}`);
+    }
+
+    function validaFormulario(){
+        console.log('validação do formulário');
+
+        let nome = document.getElementById('nome').value;
+        let idade = document.getElementById('idade').value;
+        console.log(nome, idade);
+
+        if (!nome || !idade) {
+            alert('Todos os campos são obrigatórios!');
+        }
+    }
+
+</script>
+</html>

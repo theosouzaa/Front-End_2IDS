@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página Acessível</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1 tabindex="0">Bem-vindo à página acessível</h1>
+            
+            <button id="contraste-btn" onclick="altoContraste()">Alto Contraste</button>
+            <button id="leitura-btn" onclick="modoLeitura()">Modo Leitura</button>
+            <button id="aumentar-btn" onclick="aumentarFonte()">Aumentar Fonte</button>
+            <button id="diminuir-btn" onclick="diminuirFonte()">Diminuir Fonte</button>
+            <button id="ler-btn" onclick="lerConteudo()">Ler Conteúdo</button>
+        </header>
+        
+        <main>
+            <section>
+                <p>Este é um exemplo de página com acessibilidade</p>
+                <p>Use os botoes acima para alterar o contraste, aumentar a fonte,
+                    mudar para o modo leitura e ouvir o conteúdo da página.
+                </p>
+            </section>
+        </main>
+        
+        <!-- Teclado virtual controlado pelo JS -->
+        <section>
+            <h2>Teclado virtual</h2>
+            
+            <div>
+                <button onclick="adicionarLetra('A')">A</button>
+                <button onclick="adicionarLetra('B')">B</button>
+                <button onclick="adicionarLetra('C')">C</button>
+            </div>
+            
+            <p id="resultado">Precione as teclas para digitar:</p>
+        </section>
+
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+
+        <script>
+            // Função do alto contraste
+            function altoContraste(){
+                document.body.classList.toggle('alto-contraste')
+            }
+            
+            // Função modo leitura
+            function modoLeitura(){
+                document.body.classList.toggle('modo-leitura');
+            }
+            
+            // Mudar a fonte das letras
+            
+            // Aumentar
+            function aumentarFonte(){
+                // Adiciona classe de aumentar fonte
+                document.body.classList.add('aumentar-fonte');
+                document.body.classList.remove('diminuir-fonte');
+            }
+            
+            // Diminuir
+            function diminuirFonte(){
+                // Adiciona classe de diminuir fonte
+                document.body.classList.add('diminuir-fonte');
+                document.body.classList.remove('aumentar-fonte');
+            }
+            
+            // Teclado Virtual
+            function adicionarLetra(letra){
+                document.getElementById('resultado').innerText += letra;
+            }
+            
+            // Leitura do conteúdo (voz)
+            function lerConteudo(){
+                let textoPagina = document.body.innerText;
+                let leitor = new SpeechSynthesisUtterance(textoPagina);
+                
+                
+                leitor.lang = 'pt-BR'; // Linguagem da leitura
+                leitor.volume = 1; // Volume da leitura (audio)
+                leitor.rate = 1; // Velocidade da leitura
+                leitor.pitch = 1 // Altura da voz(entonação)
+                
+                // Faz a leitura
+                speechSynthesis.speak(leitor);
+            }
+            </script>
+            <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+            <script>
+                new window.VLibras.Widget('https://vlibras.gov.br/app');
+            </script>
+    </body>
+</html>

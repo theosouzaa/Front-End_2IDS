@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade - 1</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+    <body>
+        <header>
+            <img class="imagemlogo" src="https://upload.wikimedia.org/wikipedia/commons/8/8c/SENAI_S%C3%A3o_Paulo_logo.png" alt="Imagem logo SENAI">
+            
+            <h1>Bem-vindo à página acessível do SENAI</h1>
+            <br>
+            <button id="contraste-btn" onclick="altoContraste()">Alto Contraste</button>
+            <button id="leitura-btn" onclick="modoLeitura()">Modo Leitura</button>
+            <button id="aumentar-btn" onclick="aumentarFonte()">Aumentar Fonte</button>
+            <button id="diminuir-btn" onclick="diminuirFonte()">Diminuir Fonte</button>
+            <button id="ler-btn" onclick="lerConteudo()">Ler Conteúdo</button>
+        </header>
+
+        <main>
+            <section>
+                <p>Este é um exemplo de página com acessibilidade do SENAI</p>
+                <p>Use os botoes acima para alterar o contraste, aumentar a fonte,
+                    mudar para o modo leitura e ouvir o conteúdo da página.
+                </p>
+            </section>
+
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+
+            <script>
+            // Função do alto contraste
+            function altoContraste(){
+                document.body.classList.toggle('alto-contraste')
+            }
+            
+            // Função modo leitura
+            function modoLeitura(){
+                document.body.classList.toggle('modo-leitura');
+            }
+            
+            // Mudar a fonte das letras
+            
+            // Aumentar
+            function aumentarFonte(){
+                // Adiciona classe de aumentar fonte
+                document.body.classList.add('aumentar-fonte');
+                document.body.classList.remove('diminuir-fonte');
+            }
+            
+            // Diminuir
+            function diminuirFonte(){
+                // Adiciona classe de diminuir fonte
+                document.body.classList.add('diminuir-fonte');
+                document.body.classList.remove('aumentar-fonte');
+            }
+
+             // Leitura do conteúdo (voz)
+            function lerConteudo(){
+                let textoPagina = document.body.innerText;
+                let leitor = new SpeechSynthesisUtterance(textoPagina);
+                
+                
+                leitor.lang = 'pt-BR'; // Linguagem da leitura
+                leitor.volume = 1; // Volume da leitura (audio)
+                leitor.rate = 1; // Velocidade da leitura
+                leitor.pitch = 1 // Altura da voz(entonação)
+                
+                // Faz a leitura
+                speechSynthesis.speak(leitor);
+            }
+            </script>
+            <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+            <script>
+                new window.VLibras.Widget('https://vlibras.gov.br/app');
+            </script>
+    </body>
+</html>

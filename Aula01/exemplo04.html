@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções em JavaScript</title>
+</head>
+<body>
+    <h1>Página de funções em JavaScript</h1>
+    <button type="button" onclick="exibirAlerta()">Exiba o alerta</button>
+</body>
+<script>
+
+    function dataHoraAtual(){
+        let agora = new Date();
+        let dataHora = agora.toLocaleString("pt-BR");
+        console.log(`Data e hora atual: ${dataHora}`);
+    }
+
+    dataHoraAtual();
+
+    function gerarNumeroAleatorio(){
+        let num = Math.floor(Math.random() * 10) + 1;
+        console.log(`O número sorteado foi: ${num}`);
+    }
+
+    gerarNumeroAleatorio();
+
+// Exibe o alerta quando preciona o botão
+    function exibirAlerta(){
+        alert('Alerta chamado pelo botão');
+    }
+
+</script>
+</html>

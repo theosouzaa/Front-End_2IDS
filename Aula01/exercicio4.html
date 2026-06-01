@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Data e hora e os dias com JavaScript</title>
+</head>
+<body>
+    <h1>Data e hora e dias com JavaScript</h1>
+</body>
+<script>
+
+    function dataAtual() {
+        let agora = new Date();
+        let dia = agora.getDate();
+        let mes = agora.getMonth() + 1; 
+        let ano = agora.getFullYear();
+        let hora = agora.getHours();
+        let minutos = agora.getMinutes();
+
+        alert (`Dia: ${dia}`);
+        alert (`Mês: ${mes}`);
+        alert (`Ano: ${ano}`);
+        alert (`Hora: ${hora}`);
+        alert (`Minutos: ${minutos}`);
+
+        console.log (`Dia: ${dia}`);
+        console.log (`Mês: ${mes}`);
+        console.log (`Ano: ${ano}`);
+        console.log (`Hora: ${hora}`);
+        console.log (`Minutos: ${minutos}`);
+    }
+
+    dataAtual(); 
+    dataAtual(); 
+    dataAtual(); 
+
+</script>
+</html>

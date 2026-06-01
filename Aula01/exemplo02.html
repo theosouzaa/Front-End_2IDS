@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+<body>
+    <h1>Página com JavaScript</h1>
+</body>
+<script>
+    // Entrada de dados com prompt
+    let nome = prompt('Digite seu nome');
+
+    // Mostrando o nome
+    alert(`O seu nome é ${nome}`);
+
+    console.log(`Nome digitado é ${nome}`);
+
+    let nota1 = parseInt(prompt('Digite a primeira nota:'));
+    let nota2 = parseInt(prompt('Digite a segunda nota:'));
+    let nota3 = parseInt(prompt('Digite a terceira nota:'));
+    let nota4 = parseInt(prompt('Digite a quarta nota:'));
+
+    let media = (nota1 + nota2+ nota3 + nota4)/4;
+
+    alert (media);
+    console.log(media);
+
+    if(media >= 7) {
+        console.log(`Parabéns ${nome}, você está aprovado(a)!`);
+    }else if (media <4) {
+        console.log(`Atenção ${nome}, você está reprovado(a)!`);
+    }else{
+        console.log(`Atenção ${nome}, você está de recuperação`);
+    }
+
+</script>
+</html>

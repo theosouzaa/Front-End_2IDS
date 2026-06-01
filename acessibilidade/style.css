@@ -1,0 +1,35 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+
+/* Classe do alto contraste */
+.alto-contraste{
+    background-color: black;
+    color: yellow;
+}
+
+/* Personalização botões */
+button{
+    padding: 10px;
+    cursor: pointer;
+    background-color: yellow;
+    color: black;
+    background-color: 2px solid yellow;
+}
+
+/* Modo de Leitura */
+.modo-leitura{
+    background-color: rgb(208, 208, 208);
+    font-size: 25px;
+    color: black;
+}
+
+/* Ajuste fonte */
+.aumentar-fonte{
+    font-size: 26px;
+}
+
+.diminuir-fonte{
+    font-size: 14px;
+}

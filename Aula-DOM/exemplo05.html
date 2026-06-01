@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 05 - DOM</title>
+</head>
+<body>
+    <h2>Cadastro Usuários</h2>
+
+    <form onsubmit="validarFormulario(event)">
+        <label>Nome</label>
+        <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+        <br><br>
+
+        <label>CPF</label>
+        <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00">
+        <br><br>
+
+        <label>Telefone</label>
+        <input type="text" name="telefone" id="telefone" placeholder="(00) 0000-0000">
+
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+<!-- CDN JQUERY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- CDN INPUTMASK -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.9/jquery.inputmask.min.js"></script>
+<script>
+    // Máscara de CPF
+    let campoCPF = document.getElementById('cpf');
+
+    campoCPF.addEventListener("input", function(){
+        // console.log('Campo alterado');
+        // Remove tudo que não for número do CPF
+        let valorCpf = campoCPF.value.replace(/\D/g, "");
+
+        if (valorCpf.length > 3 && valorCpf.length <= 6) {
+            valorCpf = valorCpf.slice(0, 3) + "." + valorCpf.slice(3);
+        }else if(valorCpf.length > 6 && valorCpf.length <= 9){
+            valorCpf = valorCpf.slice(0, 3) + "." + valorCpf.slice(3, 6) + "." + valorCpf.slice(6);
+        }else if(valorCpf.length > 9){
+            valorCpf = valorCpf.slice(0, 3) + "." + valorCpf.slice(3, 6) + "." + valorCpf.slice(6, 9) + "-" + valorCpf.slice(9, 11)
+        }
+
+        campoCPF.value = valorCpf
+    });
+
+    Inputmask({ "mask": "(99) 99999-9999" }).mask(document.getElementById("telefone"));
+    
+    // Validações Formulário
+    function validarFormulario(event){
+        // Travar envio automatico do HTML
+        event.preventDefault();
+
+        let nome = document.getElementById("nome").value;
+        let cpf = document.getElementById("cpf").value;
+        let telefone = document.getElementById("telefone").value;
+        
+        if(!nome || !cpf || !telefone){
+            alert("Todos os campos são obrigatórios!");
+            return false; // Impede o envio do formulário
+        }
+    }
+</script>
+</html>

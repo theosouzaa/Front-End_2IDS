@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 04 - DOM</title>
+</head>
+<body>
+    <p id="meuNome">Meu nome é Théo</p>
+    <button onclick="aparecerTexto()">Clique para aparecer o texto!</button>
+    <button onclick="mudarCorTexto()">Mudar Cor do Texto</button>
+    <button onclick="limparTexto()">Clique para limpar o texto</button>
+    <p id="mensagem"></p>
+</body>
+<script>
+    let paragrafo = document.getElementById("meuNome").textContent;
+    console.log(paragrafo);
+
+    function aparecerTexto(){
+        document.getElementById("mensagem").innerHTML = 'Você clicou no botão!';
+    }
+
+    function mudarCorTexto(){
+        let cor = prompt("Digite a cor que deseja para o texto (ex: red, blue, green, etc): ");
+        document.getElementById("mensagem").style.color = cor;
+    }
+
+    function limparTexto(){
+        document.getElementById("mensagem").innerHTML = '';
+    }
+</script>
+</html>

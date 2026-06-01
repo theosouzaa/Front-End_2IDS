@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Página de Exercício</h1>
+</body>
+<script>
+
+    let forma = prompt("Qual a forma geométrica? (círculo, retângulo ou quadrado)");
+    let area
+
+    if (forma == "círculo") {
+        let raio = prompt ("Digite o raio: ");
+        area = Math.PI * (raio * raio);
+        console.log (`A área do círculo é: ${area}`);
+    } else if(forma == "quadrado") {
+        let lado1 = prompt ("Digite o primeiro lado: ");
+        let lado2 = prompt ("Digite o segundo lado: ");
+        lado = lado1 * lado2;
+        console.log (`A área do quadrado é: ${lado}`);
+    }else if(forma == "triângulo") {
+        let base = prompt ("Digite a base: ");
+        let altura = prompt ("Digite a altura: ");
+        baal = base * altura; 
+        console.log (`A área do triângulo é: ${baal}`);
+    }else {
+            alert("Erro! Não há essa forma geométrica.");
+        }
+</script>
+</html>

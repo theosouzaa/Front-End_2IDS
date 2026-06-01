@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de sensores</title>
+</head>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: darkslateblue;
+            color: white;
+            text-align: center;
+        }
+
+        h1{
+            margin-top: 20px;
+        }
+
+        canvas{
+            background-color: rgb(235, 233, 233);
+            margin-top: 20px;
+            border: 2px solid grey;
+        }
+
+    </style>
+    <body>
+        <h1>Painel</h1>
+
+        <!-- Area do desenho do canvas -->
+        <canvas id="canvas" width="720" height="300"></canvas>
+
+        <script>
+            // Pegando os elementos pelo ID
+            let canvas = document.getElementById('canvas');
+            let desenho = canvas.getContext('2d'); // Contexto do desenho 2D
+
+            // Criando um objeto em JavaScrpt para simular dados
+            let dados = [
+                {nome: 'Temperatura', valor: Math.random() * 100},
+                {nome: 'Pressão', valor: Math.random() * 100},
+                {nome: 'Umidade', valor: Math.random() * 100}
+            ];
+
+            // Função para definir a cor
+            function mudaCor(valor){
+                if (valor < 60) {
+                    return "#2ecc71"; // Cor verde 
+                }else if (valor < 80) {
+                    return "#f1c40f" // Cor amarelo
+                }else {
+                    return "#e74c3c"; // Cor vermelho
+                }
+            }
+
+            // Desenhar o card do sensor
+            function DesenharCard(x, y, sensor){
+                // Fundo do card
+                desenho.fillStyle = "black";
+                desenho.fillRect(x, y, 150, 180);
+
+                // Borda
+                desenho.strokeStyle = "#777";
+                desenho.strokeRect(x, y, 150, 180);
+
+                // Nome do card
+                desenho.fillStyle = "black";
+                desenho.font = "16px Arial";
+                desenho.fillText(sensor.nome, x, y);
+
+                // Círculo com canvas
+                desenho.beginPath();
+                desenho.arc(x + 75, y + 90, 40, 0, Math.PI * 2);
+                desenho.fillStyle = mudaCor(sensor.valor);
+                desenho.fill();
+                desenho.closePath();
+
+                // Valor númerico exibido no card
+                desenho.fillStyle = "white";
+                desenho.font = "20px Arial";
+                desenho.fillText(sensor.valor.toFixed(0), x + 60, y + 95);
+                
+                // Status do sensor
+                let status = "";
+
+                if (sensor.valor < 60) {
+                    status = "NORMAL";
+                }else if (sensor.valor < 80) {
+                    status = "ATENÇÃO";
+                }else {
+                    status = "CRÍTICO";
+                }
+
+                desenho.font = "12px Arial";
+                desenho.fillText(status, x + 45, y + 150)
+
+            }
+
+            function desenhar(){
+                // Desenhar card dos sensores
+                DesenharCard(40, 60, dados[0]);
+                DesenharCard(225, 60, dados[1]);
+                DesenharCard(410, 60, dados[2]);
+            }
+
+            desenhar();
+
+        </script>
+    </body>
+</html>

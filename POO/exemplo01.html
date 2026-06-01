@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO - JavaScript</title>
+</head>
+    <body>
+        <h1>POO - JavaScript</h1>
+    </body>
+    <script>
+        class Pessoa{
+            constructor(nome){
+                this.nome = nome;
+            }
+
+            exibirNome(){
+                console.log(`O nome da pessoa é ${this.nome}`);
+
+            }
+        }
+
+        let novaPessoa = new Pessoa('Théo');
+        console.log(novaPessoa);
+        console.log(`O nome da pessoa é ${novaPessoa.nome}`);
+        novaPessoa.exibirNome();
+
+    </script>
+</html>
