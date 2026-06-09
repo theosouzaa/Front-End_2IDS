@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login com Google</title>
+    <!-- Incluindo CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <main class="min-vh-100 container d-flex justify-content-center align-items-center">
+        <div class="card shadow p-4 text-center">
+            <h1 class="h4 mb-3">Portal do Aluno</h1>
+            <p class="text-muted">Entre usando sua conta Google</p>
+
+            <!-- Criando área de login do google -->
+            <div class="login-area">
+                <div id="g_id_onload" data-client_id="712566735612-5kalcmg0r6n1baf9ta43jms2c8s0hrr1.apps.googleusercontent.com" data-callback="loginGoogle">
+                </div>
+                <!-- Login com Google -->
+                <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"
+                    data-shape="rectangular">
+                </div>
+
+                <!-- Área da pessoa logada -->
+                <div id="area-usuario" class="d-none">
+                    <!-- imagem do google -->
+                    <img id="foto-usuario" class="rounded-circle mb-3" width="90" height="90">
+                    <!-- nome do uuário do google -->
+                    <h2 id="nome-usuario"></h2>
+                    <!-- email da conta google -->
+                    <p id="email-usuario" class="text-muted"></p>
+                    <!-- hora de login -->
+                    <p id="hora-login" class="small"></p>
+
+                    <!-- Botão para sair -->
+                    <button class="btn btn-danger w-100" onclick="logout()">Sair</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cliente Google -->
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <!-- Importação do JS -->
+    <script src="script.js"></script>
+    <!-- Incluindo JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
